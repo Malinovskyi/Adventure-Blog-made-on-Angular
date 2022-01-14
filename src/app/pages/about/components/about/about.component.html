@@ -1,0 +1,65 @@
+<section class="about">
+  <app-page-header></app-page-header>
+  <div class="about__info">
+    <h2 class="about__info-title">About The Adventure Blog</h2>
+    <p class="about__info-text">
+      The Adventure Blog is more than a website. We are a community of
+      adrenaline enthusiasts who like to share wisdom and experiences. We like
+      to write about everything from upcoming community events to reviewing
+      professional grade gear and equipment.
+    </p>
+    <p class="about__info-text">
+      The Adventure Blog was started in 2007 as a Blogspot and has morphed into
+      a real site with a huge following and a social community full of some of
+      the biggest names in climbing, hiking, exploring biking, traveling, and
+      any other adventures!
+    </p>
+    <p class="about__info-text">
+      Please use the search bar, and you can search through almost 13,000
+      articles and posts about various topics relating to the adventure world.
+      Please don’t hesitate to contact us with any questions, comments, or
+      opportunities.
+    </p>
+    <p class="about__info-text">
+      We are REAL people, with REAL experiences to share. Any writers here are
+      not simply hired guns from a content service; they are genuine adventure
+      junkies who can write!
+    </p>
+  </div>
+
+  <section
+    class="members"
+    *ngFor="let user of this.memberService.people$ | async"
+  >
+    <div class="members__container">
+      <div class="members__container-box">
+        <div class="members__container-img">
+          <img src="{{ user.image }}" alt="" />
+        </div>
+        <div class="members__container-info">
+          <p class="members__container-text">
+            <span class="members__container-span">Name:</span>
+            {{ user.firstName }} {{ user.lastName }}
+          </p>
+          <p class="members__container-text">
+            <span class="members__container-span">Position:</span>
+            {{ user.position }}
+          </p>
+          <p class="members__container-text">
+            <span class="members__container-span">Role:</span> {{ user.role }}
+          </p>
+          <p class="members__container-text">
+            <span class="members__container-span">Age:</span> {{ user.age }}
+          </p>
+          <div
+            class="members__container-button"
+            *ngIf="authService.isAuthenticated()"
+          >
+            <button [routerLink]="['/member', user.id]">Edit</button>
+            <button (click)="removePost(user.id)">Delete user</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

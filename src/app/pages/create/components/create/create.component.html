@@ -1,0 +1,81 @@
+<section class="create-post">
+  <app-page-header></app-page-header>
+
+  <h1 class="create-post__title">{{ actionTitle }} Post</h1>
+
+  <form class="create-post__form" [formGroup]="form">
+    <div class="create-post__form-container">
+      <app-input label="Title:">
+        <input type="text" formControlName="title" />
+      </app-input>
+      <div
+        class="create-post__form-validation"
+        *ngIf="form.get('title').touched && form.get('title').invalid"
+      >
+        <small *ngIf="form.get('title').errors.required">
+          Type your title
+        </small>
+      </div>
+    </div>
+
+    <div class="create-post__form-container">
+      <app-input label="Image url:">
+        <input type="text" formControlName="img" />
+      </app-input>
+      <div
+        class="create-post__form-validation"
+        *ngIf="form.get('img').touched && form.get('img').invalid"
+      >
+        <small *ngIf="form.get('img').errors.required">
+          Paste your image
+        </small>
+      </div>
+    </div>
+
+    <div class="create-post__form-container">
+      <app-input label="SubContent:">
+        <textarea formControlName="subContent"></textarea>
+      </app-input>
+      <div
+        class="create-post__form-validation"
+        *ngIf="form.get('subContent').touched && form.get('subContent').invalid"
+      >
+        <small *ngIf="form.get('subContent').errors.required">
+          Type your content
+        </small>
+      </div>
+    </div>
+
+    <div class="create-post__form-container">
+      <app-input label="MainContent:">
+        <textarea formControlName="mainContent"></textarea>
+      </app-input>
+      <div
+        class="create-post__form-validation"
+        *ngIf="form.get('mainContent').touched && form.get('mainContent').invalid"
+      >
+        <small *ngIf="form.get('mainContent').errors.required">
+          Type your content
+        </small>
+      </div>
+    </div>
+
+    <div class="create-post__form-container">
+      <app-input label="Date:">
+        <input type="Date" formControlName="date" />
+      </app-input>
+      <div
+        class="create-post__form-validation"
+        *ngIf="form.get('date').touched && form.get('date').invalid"
+      >
+        <small *ngIf="form.get('date').errors.required">
+          Type your title
+        </small>
+      </div>
+    </div>
+
+    <button type="submit" (click)="submit()" class="create-post__form-button">
+      {{ actionButton }}
+    </button>
+  </form>
+</section>

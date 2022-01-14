@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="header__container" *ngIf="!auth.isAuthenticated(); else logOut">
+    <div class="header__logo"><a routerLink="/">MNTN</a></div>
+    <nav class="header__nav" *ngIf="!auth.isAuthenticated(); else logOut">
+      <ul class="header__nav-list">
+        <li>
+          <a routerLink="/blog">Blog</a>
+        </li>
+        <li>
+          <a routerLink="/about">About us</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__account">
+      <a routerLink="/authorization">Account</a>
+    </div>
+  </div>
+</header>
+<router-outlet></router-outlet>
+<ng-template class="header" #logOut>
+  <div class="header__container">
+    <div class="header__logo"><a routerLink="/">MNTN</a></div>
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li>
+          <a routerLink="/blog">Blog</a>
+        </li>
+        <li>
+          <a routerLink="/about">About us</a>
+        </li>
+        <li>
+          <a routerLink="/member/new">Member</a>
+        </li>
+        <li>
+          <a routerLink="/create/new">Create post</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__account">
+      <a href="#" (click)="logout($event)"> Log out </a>
+    </div>
+  </div>
+</ng-template>

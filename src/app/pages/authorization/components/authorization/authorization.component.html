@@ -1,0 +1,62 @@
+<section class="authorization">
+  <app-page-header></app-page-header>
+
+  <h3 class="authorization__title">Authorization</h3>
+
+  <form class="authorization__form" [formGroup]="form">
+    <div class="alert alert-danger" *ngIf="auth.error$ | async as error">
+      {{ error }}
+    </div>
+
+    <div class="alert alert-danger" *ngIf="message">
+      {{ message }}
+    </div>
+
+    <div class="authorization__form-email">
+      <app-input label="Email:">
+        <input type="text" formControlName="email" />
+      </app-input>
+      <div
+        class="authorization__form-validation"
+        *ngIf="form.get('email').touched && form.get('email').invalid"
+      >
+        <small *ngIf="form.get('email').errors.required">
+          Type your email
+        </small>
+        <small *ngIf="form.get('email').errors.email">
+          It's not an email format
+        </small>
+      </div>
+    </div>
+
+    <div class="authorization__form-password">
+      <app-input label="Password:">
+        <input type="password" formControlName="password" />
+      </app-input>
+      <div
+        class="authorization__form-validation"
+        *ngIf="form.get('password').touched && form.get('password').invalid"
+      >
+        <small *ngIf="form.get('password').errors.required">
+          Type your password
+        </small>
+        <small *ngIf="form.get('password').errors.minlength">
+          Minimal lenth is
+          {{ form.get("password").errors.minlength.requiredLength }}. Currently
+          it has
+          {{ form.get("password").errors.minlength.actualLength }} symbols
+        </small>
+      </div>
+    </div>
+
+    <div class="authorization__form-button">
+      <button
+        type="submit"
+        (click)="submit()"
+        [disabled]="form.invalid || submitted"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</section>

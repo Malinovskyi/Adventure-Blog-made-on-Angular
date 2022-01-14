@@ -1,0 +1,33 @@
+.post {
+  width: 100%;
+  background-color: #0b1d26;
+  padding: 0px 70px 70px 70px;
+  min-height: 100vh;
+  &__title {
+    font-size: 41px;
+    font-weight: 400;
+    line-height: 80px;
+    text-transform: capitalize;
+    color: #fbd784;
+    text-align: center;
+    padding-top: 15px;
+  }
+  &__info {
+    margin-top: 40px;
+    &-img {
+      float: left;
+      margin-right: 40px;
+      img {
+        width: 600px;
+        height: 400px;
+      }
+    }
+    &-text {
+      text-align: left;
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 35px;
+      color: #fff;
+    }
+  }
+}

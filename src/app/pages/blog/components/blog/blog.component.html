@@ -1,0 +1,38 @@
+<section class="blog">
+  <app-page-header></app-page-header>
+  <h2 class="blog-title">Our list of adventures</h2>
+
+  <div class="blog-list">
+    <div class="blog-list__find-input">
+      <input type="search" placeholder="Search....." [(ngModel)]="searchStr" />
+    </div>
+
+    <div
+      class="blog-list__container"
+      *ngFor="let item of blogService.posts$ | async | searchPosts: searchStr"
+    >
+      <div class="blog-list__container-box">
+        <div class="blog-list__container-img">
+          <img src="{{ item.img }}" alt="" />
+        </div>
+        <div class="blog-list__container-info">
+          <p class="blog-list__container-title">{{ item.title }}</p>
+          <p class="blog-list__container-about">
+            {{ item.subContent }}
+            <span
+              class="blog-list__container-span"
+              [routerLink]="['/post', item.id]"
+              >Read more</span
+            >
+          </p>
+          <p class="blog-list__container-date">{{ item.date }}</p>
+
+          <div class="blog-list__button" *ngIf="authService.isAuthenticated()">
+            <button [routerLink]="['/create', item.id]">Edit</button>
+            <button (click)="removePost(item.id)">Delete post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

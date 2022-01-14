@@ -1,0 +1,38 @@
+<section class="form">
+  <app-page-header></app-page-header>
+  <h1 class="form__title">{{ changeTitle }} member</h1>
+  <div class="form__container">
+    <form [formGroup]="form">
+      <div>
+        <app-input label="Name:">
+          <input type="text" formControlName="firstName" />
+        </app-input>
+      </div>
+      <div>
+        <app-input label="Position:">
+          <input type="text" formControlName="position" />
+        </app-input>
+      </div>
+      <div>
+        <app-input label="Role:">
+          <input type="text" formControlName="role" />
+        </app-input>
+      </div>
+      <div>
+        <app-input label="Age:">
+          <input type="text" formControlName="age" />
+        </app-input>
+      </div>
+
+      <div>
+        <app-input label="Image url:">
+          <input type="text" formControlName="image" />
+        </app-input>
+      </div>
+
+      <button type="submit" (click)="action()" class="form__button">
+        {{ actionButton }}
+      </button>
+    </form>
+  </div>
+</section>

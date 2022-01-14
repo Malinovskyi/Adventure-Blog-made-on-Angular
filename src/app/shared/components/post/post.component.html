@@ -1,0 +1,12 @@
+<div class="post" *ngFor="let item of post$ | async">
+  <app-page-header></app-page-header>
+  <h2 class="post__title">{{ item.title }}</h2>
+  <div class="post__info">
+    <p class="post__info-img">
+      <img src="{{ item.img }}" alt="" />
+    </p>
+    <p class="post__info-text">
+      {{ item.mainContent }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+.header {
+  background-color: transparent;
+  color: #ffff;
+  padding: 30px 70px;
+  position: relative;
+  z-index: 1000;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    font-family: "EB Garamond";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    cursor: pointer;
+    a {
+      color: #ffff;
+      text-decoration: none;
+    }
+  }
+  &__nav {
+    font-weight: 500;
+    &-list {
+      display: flex;
+      align-items: center;
+      line-height: 21px;
+      font-size: 19.5px;
+      margin-bottom: 0;
+      li {
+        a {
+          letter-spacing: 0.01em;
+          margin-right: 40px;
+          position: relative;
+          cursor: pointer;
+          text-decoration: none;
+          color: #ffff;
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.5s;
+          }
+          &:hover::after {
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.5s;
+          }
+        }
+      }
+    }
+  }
+  &__account {
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    font-family: "EB Garamond";
+    font-size: 18.5px;
+    line-height: 21px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    a {
+      color: #ffff;
+      text-decoration: none;
+      &::before {
+        content: "";
+        background-image: url("../../../../../assets/img/logos/cart.png");
+        left: -25px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        position: absolute;
+      }
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+        transition: width 0.5s;
+      }
+      &:hover::after {
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        height: 2px;
+        background-color: #fff;
+        transition: width 0.5s;
+      }
+    }
+  }
+}
